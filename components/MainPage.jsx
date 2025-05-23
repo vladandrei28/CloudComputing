@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { deleteRecord, getRecords } from "@/utils/recordsFunctions";
 
+
+
 const MainPage = () => {
   const router = useRouter();
   const [records, setRecords] = useState([]);
+  
 
   const fetchRecords = async () => {
     try {
@@ -35,6 +38,7 @@ const MainPage = () => {
     router.push(`/records/edit?id=${id}`);
   };
 
+  
   useEffect(() => {
     fetchRecords();
   }, []);
@@ -71,6 +75,7 @@ const MainPage = () => {
         </div>
       ))}
     </div>
+    
   );
 };
 
