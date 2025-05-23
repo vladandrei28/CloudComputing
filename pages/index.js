@@ -10,13 +10,13 @@ export default function Home() {
 
         {/* Recorduri */}
         <div className="bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">✍️ Recorduri</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">✍️ Persoane</h2>
           <MainPage />
         </div>
 
         {/* Călătorii de vis */}
         <div className="bg-white shadow-md rounded-lg p-6">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800">🌍 Caută țara unde ai dori să călătorești</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">🌍 Cauta tara unde ai dori să calatoresti</h2>
           <SearchCountry onAdd={() => window.location.reload()} />
           <MainPageWishlist />
         </div>

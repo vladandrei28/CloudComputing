@@ -1,40 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+#INTRODUCERE
 
-## Getting Started
+Proiectul se bazeaza pe doua servicii in cloud intr-o aplicatie web simpla si functionala si a fost realizat pentru materia Cloud Computing.Aplicația e construită cu Next.js și este organizată astfel incat sa fie usor de folosit, dar si ușor de extins in viitor.
 
-First, run the development server:
+Aplicatia are doua parti principale:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1.Prima secțiune este un modul de tip CRUD, unde utilizatorul poate crea, citi, edita sau sterge inregistrări.Fiecare record contine un nume si o descriere, iar toate datele sunt salvate în baza de date MongoDB Atlas, gazduita in cloud. Aceasta parte mi-a permis sa aplic practic lucrul cu baze de date cloud si sa înțeleg cum functionează un API personalizat pentru operatii pe date.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2.A doua secțiune este un wishlist cu destinatii. Utilizatorul poate cauta o tara folosind un API public (REST Countries), vede informatii precum steagul, capitala si limba oficiala, și poate salva acea tara intr-un wishlist. Datele sunt salvate tot în MongoDB Atlas, dar partea interesanta e integrarea cu un serviciu extern (REST API), care ofera date live.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Prin acest proiect am reusit să folosesc două servicii cloud:
+- un API public pentru date externe
+- o bază de date în cloud pentru stocarea informatiilor personale
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+#DESCRIERE APLICATII FOLOSITE
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+1.MongoDB Atlas
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+MongoDB Atlas este un serviciu cloud care ofera o baza de date NoSQL. L-am folosit pentru a salva doua tipuri de date:
+- Persoane, care conțin un `name` si un `description` – adaugate de utilizator
+- Tari favorite, salvate de utilizator dupa ce le cauta in aplicatie
 
-## Learn More
+Am creat doua colectii diferite in baza de date:
+- records:  pentru partea de CRUD
+- wishlist:  pentru wishlist-ul cu tari
 
-To learn more about Next.js, take a look at the following resources:
+Datele sunt accesate si manipulate prin API-urile proprii scrise in `/api/records` si `/api/wishlist`, folosind Next.js.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+2. REST Countries API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Am folosit si un serviciu public, gazduit in cloud, numit REST Countries API. Acesta returneaza date despre tari in format JSON. Eu l-am folosit pentru a:
+- cauta tari după nume
+- afisa steagul, capitala, limba, moneda
+- salva acea tara in wishlist
 
-## Deploy on Vercel
+Utilizatorul scrie numele unei tari, aplicatia face un fetch catre API-ul public, iar apoi informatiile primite pot fi salvate in baza mea de date in cloud (MongoDB Atlas).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#Capturi de ecran
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+-![HomePage](./public/screenshots/interfata.png)
+-[Persoane](./public/screenshots/persoane.png)
+-[Tari](./public/screenshots/tari.png)
+
+Link youtube: https://www.youtube.com/watch?v=Mzm15pfyKhU
