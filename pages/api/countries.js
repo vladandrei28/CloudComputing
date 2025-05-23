@@ -6,6 +6,6 @@ export default async function handler(req, res) {
   if (data && data[0]) {
     res.status(200).json(data[0]);
   } else {
-    res.status(404).json({ error: "Țara nu a fost găsită" });
+    res.status(404).json({ error: "Tara nu a fost gasita" });
   }
 }

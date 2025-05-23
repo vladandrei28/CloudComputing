@@ -5,13 +5,23 @@ import SearchCountry from "@/components/SearchCountry";
 
 export default function Home() {
   return (
-     <main className="p-6">
-      <h2 className="text-2xl font-semibold mb-4">✍️ Records</h2>
-      <MainPage />
+     <main className="bg-gray-100 min-h-screen py-10">
+      <div className="max-w-5xl mx-auto space-y-10 px-4">
 
-      <h2 className="text-2xl font-semibold mt-10 mb-4">🌍 Călătorii de vis</h2>
-      <SearchCountry onAdd={() => window.location.reload()} />
-      <MainPageWishlist />
+        {/* Recorduri */}
+        <div className="bg-white shadow-md rounded-lg p-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">✍️ Recorduri</h2>
+          <MainPage />
+        </div>
+
+        {/* Călătorii de vis */}
+        <div className="bg-white shadow-md rounded-lg p-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">🌍 Caută țara unde ai dori să călătorești</h2>
+          <SearchCountry onAdd={() => window.location.reload()} />
+          <MainPageWishlist />
+        </div>
+
+      </div>
     </main>
   )
 }

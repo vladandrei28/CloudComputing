@@ -12,7 +12,7 @@ export default async function handler(req, res) {
       capital: capital[0],
       flag: flags.png,
     });
-    return res.status(200).json({ message: "Țara a fost salvată!" });
+    return res.status(200).json({ message: "Tara a fost salvata!" });
   }
 
   if (req.method === "GET") {
